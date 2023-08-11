@@ -4,7 +4,7 @@
 |     Name      |     Email     |
 | ------------- | ------------- |
 | Ranko Kasi Polat  |rkp503@uowmail.edu.au  |
-| Poh Yamone  | @uowmail.edu.au  |
-| Sreeram      | @uowmail.edu.au  |
-| Prisha     | @uowmail.edu.au|
+| Poh Yamone        | @uowmail.edu.au  |
+| Sreeram           | @uowmail.edu.au  |
+| Prisha            | @uowmail.edu.au|
 
