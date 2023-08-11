@@ -1,5 +1,6 @@
 import tkinter as tk
-from Database import Database
+from FlyDreamAir.Database import Database
+
 print("Fly Dream Air")
 print("Group Project")
 
