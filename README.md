@@ -6,6 +6,7 @@ FlyDreamAir is a major airline which covers both international and domestic rout
 • Project 3: develop an IT software system to manage the airline’s lounges across the world (e.g., customer membership, pay-per-use, bookings, cancellations, occupancy management, search for lounges, etc.)  
 
 Assume that you are members of FlyDreamAir IT team. You are required to select and execute one of the above projects. In doing so, you would need to exercise various project management skills in different project management knowledge areas that are discussed in this subject. Note that the focus is on the project management aspect, rather than the software itself (see the Guidelines section above for more details). 
+
 ## Group Members:
 |     Name      |     Email     | 
 | ------------- | ------------- |
@@ -16,4 +17,4 @@ Assume that you are members of FlyDreamAir IT team. You are required to select a
 
 
 ## Selected Project
-1? 2? 3?
+Are we doing 1,2 or 3?
