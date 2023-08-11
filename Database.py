@@ -6,9 +6,11 @@ table = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name
 
 if not table:
     conn.execute('''CREATE TABLE USER
-         (ID INT PRIMARY KEY     NOT NULL,
-         NAME           TEXT    NOT NULL,
-         AGE            INT     NOT NULL);''')
+         (USERNAME TEXT PRIMARY KEY     NOT NULL,
+          EMAIL           TEXT    NOT NULL,
+          PASSWORD       TEXT     NOT NULL);''')
+
     print("Table created successfully")
+
 else:
     print("Already exists")
