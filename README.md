@@ -8,8 +8,6 @@
 | Sreeram           | @uowmail.edu.au  |
 | Prisha            | @uowmail.edu.au|
 
-=============================================================
 
-
-### Selected Project
+## Selected Project
 1? 2? 3?
