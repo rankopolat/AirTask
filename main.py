@@ -1,30 +1,39 @@
 import tkinter as tk
-import Database
+from Database import Database
 print("Fly Dream Air")
 print("Group Project")
 
-def login_user_window():
-    rWindow.destroy()
 
 def register_user():
+    new_username = rName_entry.get()
 
-    Database.conn.execute("INSERT INTO USER (USERNAME, EMAIL, PASSWORD) VALUES (?, ?, ?)", (rName_entry.get(), rEmail_entry.get(), rPass_entry.get()))
+    # Check if the username already exists
+    cursor = Database.conn.execute("SELECT COUNT(*) FROM USER WHERE USERNAME = ?", (rName_entry.get()))
+    exists = cursor.fetchone()[0]
 
-    rWindow.destroy()
+    if exists > 0:
+        print("Username already Exists")
+        exist_label = tk.Label(rFrame, text="User already exists")
+        exist_label.grid(row=10, columnspan=2, pady=20)
+        return
 
+    else:
 
+        Database.conn.execute("INSERT INTO USER (USERNAME, EMAIL, PASSWORD) VALUES (?, ?, ?)", (rName_entry.get(), rEmail_entry.get(), rPass_entry.get()))
+        Database.conn.commit()
 
-    rWindow.destroy()
+        rWindow.destroy()
+
 def register_user_window():
 
     global rWindow
     rWindow = tk.Toplevel(win)
     rWindow.geometry("400x300")
 
+    global rName_entry, rEmail_entry, rPass_entry, rFrame
+
     rFrame = tk.Frame(rWindow)
     rFrame.pack(pady=20)
-
-    global rName_entry, rEmail_entry, rPass_entry
 
     rName_label = tk.Label(rFrame, text="Username:")
     rName_label.grid(row=0, column=0, padx=10, pady=10, sticky="w")
@@ -44,23 +53,48 @@ def register_user_window():
     r_button = tk.Button(rFrame, text="Register", command=register_user)
     r_button.grid(row=6, columnspan=2, pady=20)
 
-# Create the main window
+def login_user_window():
+    rWindow.destroy()
+
 win = tk.Tk()
 win.title("Fly Dream Air")
 win.geometry("600x400")
 
-# Create a frame for better organization
-frame = tk.Frame(win)
-frame.pack(pady=20)
+# Load the image
+bgimg = tk.PhotoImage(file="p.png")
 
+# Create a canvas for the background image
+canvas = tk.Canvas(win, width=600, height=400)
+canvas.pack()
 
+bg_label = tk.Label(canvas, image=bgimg)
+bg_label.place(relwidth=1, relheight=1)
 
-register_button = tk.Button(frame, text="Register", command=register_user_window)
-register_button.grid(row=3, columnspan=2, pady=20)
+# Calculate the space between buttons
+button_space = 50  # Adjust this value as needed
 
-# Start the Tkinter event loop
+# Calculate button width and height
+button_width = 100
+button_height = 40
+
+# Calculate total width of buttons including space
+total_button_width = 2 * button_width + button_space
+
+# Calculate the starting x-coordinate for the first button
+start_x = (600 - total_button_width) / 2
+
+# Make the Register button
+register_button = tk.Button(canvas, text="Register", command=register_user_window, width=15, height=3)
+canvas.create_window(start_x, 200, anchor="nw", window=register_button)
+
+# Make the Login button
+login_button = tk.Button(canvas, text="Login", command=login_user_window, width=15, height=3)
+canvas.create_window(start_x + button_width + button_space, 200, anchor="nw", window=login_button)
+
 win.mainloop()
 
+
+# Create the main window
 
 
 
