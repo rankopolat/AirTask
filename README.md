@@ -18,3 +18,7 @@ Assume that you are members of FlyDreamAir IT team. You are required to select a
 
 ## Selected Project
 Are we doing 1,2 or 3?
+
+## Weekly Meeting Discussions
+
+
