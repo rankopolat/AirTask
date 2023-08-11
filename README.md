@@ -1,5 +1,5 @@
-# Group Project
-# Fly Dream Air
+
+# Fly Dream Air (Group Project)
 FlyDreamAir is a major airline which covers both international and domestic routes with a large fleet of aircrafts. The airline has a large network of travel agencies and customers across the world. FlyDream is planning to digitalize its business processes and operations, and has identified three potential projects:   
 
 • Project 1: develop an IT software system to manage customers and allow them to book flights, manage flight reservations, seat selections, purchasing in-flight services such as food and drinks.   
