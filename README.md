@@ -12,7 +12,7 @@ Assume that you are members of FlyDreamAir IT team. You are required to select a
 |     Name      |     Email     | 
 | ------------- | ------------- |
 | Ranko Kasi Polat  |rkp503@uowmail.edu.au  |
-| Poh Yamone        | @uowmail.edu.au  |
+| Poh Yamone        | py469@uowmail.edu.au  |
 | Sreeram           | @uowmail.edu.au  |
 | Prisha            | @uowmail.edu.au|
 
