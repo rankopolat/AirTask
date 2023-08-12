@@ -19,7 +19,7 @@ Assume that you are members of FlyDreamAir IT team. You are required to select a
 
 
 ## Selected Project
-Are we doing 1,2 or 3?
+We are going to do Project 2
 
 
 ## Weekly Meeting Discussions
