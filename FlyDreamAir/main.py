@@ -22,7 +22,8 @@ def register_user():
         Database.conn.execute("INSERT INTO USER (USERNAME, EMAIL, PASSWORD) VALUES (?, ?, ?)", (rName_entry.get(), rEmail_entry.get(), rPass_entry.get()))
         Database.conn.commit()
 
-        rWindow.destroy()
+        win.destroy()
+        main()
 
 def login_window():
 
@@ -54,12 +55,13 @@ def login_window():
     r_button.grid(row=6, columnspan=2, pady=20)
 
 def destroy():
+
     win.destroy()
 
 
 def register_window():
 
-    global lWindow,lName_entry,lPass_entry,lFrame,exist_label
+    global rName_entry,rPass_entry,rEmail_entry,lFrame,exist_label,win
 
     destroy()
 
@@ -113,13 +115,13 @@ def register_window():
         119.0,
         image=entry_image_1
     )
-    lName_entry = tk.Entry(
+    rName_entry = tk.Entry(
         bd=0,
         bg="#FFFFFF",
         fg="#000716",
         highlightthickness=0
     )
-    lName_entry.place(
+    rName_entry.place(
         x=34.0,
         y=91.0,
         width=333.0,
@@ -142,13 +144,13 @@ def register_window():
         228.0,
         image=entry_image_2
     )
-    entry_2 = tk.Entry(
+    rEmail_entry = tk.Entry(
         bd=0,
         bg="#FFFFFF",
         fg="#000716",
         highlightthickness=0
     )
-    entry_2.place(
+    rEmail_entry.place(
         x=34.0,
         y=200.0,
         width=333.0,
@@ -171,13 +173,13 @@ def register_window():
         345.0,
         image=entry_image_3
     )
-    lPass_entry = tk.Entry(
+    rPass_entry = tk.Entry(
         bd=0,
         bg="#FFFFFF",
         fg="#000716",
         highlightthickness=0
     )
-    lPass_entry.place(
+    rPass_entry.place(
         x=32.0,
         y=317.0,
         width=333.0,
@@ -200,7 +202,7 @@ def register_window():
         image=button_image_1,
         borderwidth=0,
         highlightthickness=0,
-        command=login_user,
+        command=register_user,
         relief="flat"
     )
     button_3.place(
@@ -212,7 +214,14 @@ def register_window():
     win.resizable(False, False)
     win.mainloop()
 
-def login_user():
+def main_destroy():
+
+    win.destroy()
+    main()
+
+
+
+'''def login_user():
 
     username = lName_entry.get()
     loginCursor = Database.conn.execute("SELECT USERNAME,PASSWORD FROM USER WHERE USERNAME = ?", (username,))
@@ -227,11 +236,12 @@ def login_user():
         userWindow()
 
     else:
-        exist_label.config( text="username or password is incorrect")
+        exist_label.config( text="username or password is incorrect")'''
 
 def mainWindow():
 
     global win,register_button,login_button,canvas,button_1,canvas
+
 
     win = tk.Tk()
     win.title("Fly Dream Air")
