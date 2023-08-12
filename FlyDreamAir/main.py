@@ -13,8 +13,6 @@ def register_user():
 
     if exists > 0:
         print("Username already Exists")
-        exist_label = tk.Label(rFrame, text="User already exists")
-        exist_label.grid(row=10, columnspan=2, pady=20)
         return
 
     else:
