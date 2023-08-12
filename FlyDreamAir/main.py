@@ -138,25 +138,6 @@ def main():
     mainWindow()
 
 if __name__ == "__main__":
-    main()
 
-
-'''Database.conn.execute("INSERT INTO USER (ID,NAME,AGE) \
-      VALUES (1, 'Paul', 32)");
-
-cursor = Database.conn.execute("SELECT id, name from USER")
-
-for x in cursor:
-    print("NAME =", x[1])
-
-Database.conn.close()'''
-
-
-'''win = tk.Tk()
-
-win.geometry("1200x800")
-win.title("Fly Dream Air")
-greet = tk.Label(text="hellooo, im jesus")
-greet.pack()
-win.mainloop()'''
+   main()
 
