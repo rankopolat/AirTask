@@ -3,8 +3,6 @@ from FlyDreamAir.Database import Database
 
 print("Fly Dream Air")
 print("Group Project")
-print("Poh Yamone")
-print("hello Poh Yamone")
 
 
 def register_user():
@@ -31,6 +29,7 @@ def register_user_window():
     global rWindow,rName_entry, rEmail_entry, rPass_entry, rFrame
 
     rWindow = tk.Toplevel(win)
+    rWindow.title("Register User")
     rWindow.geometry("400x300")
 
     rFrame = tk.Frame(rWindow)
@@ -59,6 +58,7 @@ def login_user_window():
     global lWindow,lName_entry,lPass_entry,lFrame,exist_label
 
     lWindow = tk.Toplevel(win)
+    lWindow.title("Login User")
     lWindow.geometry("400x300")
 
     lFrame = tk.Frame(lWindow)
@@ -92,12 +92,15 @@ def login_user():
 
     elif exists[0] == username and exists[1] == lPass_entry.get():
         exist_label.config(text="Login successful")
+        lWindow.destroy()
+        userWindow()
 
     else:
         exist_label.config( text="username or password is incorrect")
 
 def mainWindow():
-    global win
+    global win,register_button,login_button,canvas
+
     win = tk.Tk()
     win.title("Fly Dream Air")
     win.geometry("600x400")
@@ -133,6 +136,15 @@ def mainWindow():
     canvas.create_window(start_x + button_width + button_space, 180, anchor="nw", window=login_button)
 
     win.mainloop()
+
+def userWindow():
+
+    win.geometry("1000x800")
+    register_button.destroy()
+    login_button.destroy()
+    canvas.destroy()
+
+
 
 
 def main():
