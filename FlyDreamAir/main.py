@@ -1,4 +1,4 @@
-import tkinter as tk
+import tkinter  as tk
 from FlyDreamAir.Database import Database
 
 print("Fly Dream Air")
@@ -24,7 +24,7 @@ def register_user():
 
         rWindow.destroy()
 
-def register_user_window():
+def login_window():
 
     global rWindow,rName_entry, rEmail_entry, rPass_entry, rFrame
 
@@ -53,45 +53,176 @@ def register_user_window():
     r_button = tk.Button(rFrame, text="Register", command=register_user)
     r_button.grid(row=6, columnspan=2, pady=20)
 
-def login_user_window():
+def destroy():
+    win.destroy()
+
+
+def register_window():
 
     global lWindow,lName_entry,lPass_entry,lFrame,exist_label
 
-    lWindow = tk.Toplevel(win)
-    lWindow.title("Login User")
-    lWindow.geometry("400x300")
+    destroy()
 
-    lFrame = tk.Frame(lWindow)
-    lFrame.pack(pady=20)
+    win = tk.Tk()
+    win.title("Fly Dream Air")
+    win.geometry("800x400")
+    win.configure(bg="#EFFEFF")
 
-    lName_label = tk.Label(lFrame, text="Username:")
-    lName_label.grid(row=0, column=0, padx=10, pady=10, sticky="w")
-    lName_entry = tk.Entry(lFrame)
-    lName_entry.grid(row=0, column=1, padx=10, pady=10)
+    canvas = tk.Canvas(
+        win,
+        bg="#F6FFFD",
+        height=400,
+        width=800,
+        bd=0,
+        highlightthickness=0,
+        relief="ridge"
+    )
 
-    lPass_label = tk.Label(lFrame, text="Password:")
-    lPass_label.grid(row=4, column=0, padx=10, pady=10, sticky="w")
-    lPass_entry = tk.Entry(lFrame)
-    lPass_entry.grid(row=4, column=1, padx=10, pady=10)
+    canvas.place(x=0, y=0)
 
-    l_button = tk.Button(lFrame, text="Login", command=login_user)
-    l_button.grid(row=6, columnspan=2, pady=20)
+    canvas.create_text(
+        481.0,
+        65.0,
+        anchor="nw",
+        text="Create account",
+        fill="#000000",
+        font=("Poppins Bold", 30 * -1)
+    )
 
-    exist_label = tk.Label(lFrame, text="")
-    exist_label.grid(row=10, columnspan=2, pady=20)
+    image_image_1 = tk.PhotoImage(
+        file="image_2.png")
+    image_1 = canvas.create_image(
+        400.0,
+        38.0,
+        image=image_image_1
+    )
+
+    canvas.create_text(
+        481.0,
+        264.0,
+        anchor="nw",
+        text="Already have an account?  Log in",
+        fill="#000000",
+        font=("Inter", 14 * -1)
+    )
+
+    entry_image_1 = tk.PhotoImage(
+        file=("entry_1.png"))
+    entry_bg_1 = canvas.create_image(
+        200.5,
+        119.0,
+        image=entry_image_1
+    )
+    lName_entry = tk.Entry(
+        bd=0,
+        bg="#FFFFFF",
+        fg="#000716",
+        highlightthickness=0
+    )
+    lName_entry.place(
+        x=34.0,
+        y=91.0,
+        width=333.0,
+        height=54.0
+    )
+
+    canvas.create_text(
+        24.0,
+        51.0,
+        anchor="nw",
+        text="Username",
+        fill="#000000",
+        font=("Inter", 14 * -1)
+    )
+
+    entry_image_2 = tk.PhotoImage(
+        file=("entry_2.png"))
+    entry_bg_2 = canvas.create_image(
+        200.5,
+        228.0,
+        image=entry_image_2
+    )
+    entry_2 = tk.Entry(
+        bd=0,
+        bg="#FFFFFF",
+        fg="#000716",
+        highlightthickness=0
+    )
+    entry_2.place(
+        x=34.0,
+        y=200.0,
+        width=333.0,
+        height=54.0
+    )
+
+    canvas.create_text(
+        24.0,
+        161.0,
+        anchor="nw",
+        text="Email",
+        fill="#000000",
+        font=("Inter", 14 * -1)
+    )
+
+    entry_image_3 = tk.PhotoImage(
+        file=("entry_3.png"))
+    canvas.create_image(
+        198.5,
+        345.0,
+        image=entry_image_3
+    )
+    lPass_entry = tk.Entry(
+        bd=0,
+        bg="#FFFFFF",
+        fg="#000716",
+        highlightthickness=0
+    )
+    lPass_entry.place(
+        x=32.0,
+        y=317.0,
+        width=333.0,
+        height=54.0
+    )
+
+    canvas.create_text(
+        24.0,
+        278.0,
+        anchor="nw",
+        text="Password",
+        fill="#000000",
+        font=("Inter", 14 * -1)
+    )
+
+    button_image_1 = tk.PhotoImage(
+        file=("button_2.png"))
+
+    button_3 = tk.Button(
+        image=button_image_1,
+        borderwidth=0,
+        highlightthickness=0,
+        command=login_user,
+        relief="flat"
+    )
+    button_3.place(
+        x=414.0,
+        y=175.0,
+        width=353.0,
+        height=56.0
+    )
+    win.resizable(False, False)
+    win.mainloop()
 
 def login_user():
 
     username = lName_entry.get()
     loginCursor = Database.conn.execute("SELECT USERNAME,PASSWORD FROM USER WHERE USERNAME = ?", (username,))
     exists = loginCursor.fetchone()
-
+    mainWindow()
     if exists is None:
-
-        exist_label.config(text="username or password is incorrect")
+        pass
 
     elif exists[0] == username and exists[1] == lPass_entry.get():
-        exist_label.config(text="Login successful")
+       # exist_label.config(text="Login successful")
         lWindow.destroy()
         userWindow()
 
@@ -99,50 +230,93 @@ def login_user():
         exist_label.config( text="username or password is incorrect")
 
 def mainWindow():
-    global win,register_button,login_button,canvas
+
+    global win,register_button,login_button,canvas,button_1,canvas
 
     win = tk.Tk()
     win.title("Fly Dream Air")
-    win.geometry("600x400")
+    win.geometry("800x400")
+    win.configure(bg="#EFFEFF")
 
-    # Load the image
-    bgimg = tk.PhotoImage(file="p.png")
+    canvas = tk.Canvas(
+        win,
+        bg="#EFFEFF",
+        height=400,
+        width=800,
+        bd=0,
+        highlightthickness=0,
+        relief="ridge"
+    )
 
-    # Create a canvas for the background image
-    canvas = tk.Canvas(win, width=600, height=400)
-    canvas.pack()
+    canvas.place(x=0, y=0)
+    image_image_1 = tk.PhotoImage(
+        file=("p.png"))
+    image_1 = canvas.create_image(
+        599.0,
+        124.0,
+        image=image_image_1
+    )
 
-    bg_label = tk.Label(canvas, image=bgimg)
-    bg_label.place(relwidth=1, relheight=1)
+    button_image_1 = tk.PhotoImage(
+        file=("button_1.png"))
 
-    # Calculate the space between buttons
-    button_space = 50  # Adjust this value as needed
+    button_1 = tk.Button(
+        image=button_image_1,
+        borderwidth=0,
+        highlightthickness=0,
+        command=login_window,
+        relief="flat"
+    )
+    button_1.place(
+        x=36.0,
+        y=96.0,
+        width=353.0,
+        height=56.0
+    )
 
-    # Calculate button width and height
-    button_width = 100
+    button_image_2 = tk.PhotoImage(
+        file=("button_2.png"))
+    button_2 = tk.Button(
+        image=button_image_2,
+        borderwidth=0,
+        highlightthickness=0,
+        command=register_window,
+        relief="flat"
+    )
+    button_2.place(
+        x=36.0,
+        y=248.0,
+        width=353.0,
+        height=56.0
+    )
 
-    # Calculate total width of buttons including space
-    total_button_width = 2 * button_width + button_space
+    canvas.create_text(
+        509.0,
+        276.0,
+        anchor="nw",
+        text="Welcome To Fly Dream Air\nThe one place where dreaming\ncan become the reality\n",
+        fill="#000000",
+        font=("Inter", 17 * -1)
+    )
 
-    # Calculate the starting x-coordinate for the first button
-    start_x = (600 - total_button_width) / 2
-
-    # Make the Register button
-    register_button = tk.Button(canvas, text="Register", command=register_user_window, width=15, height=3)
-    canvas.create_window(start_x, 180, anchor="nw", window=register_button)
-
-    # Make the Login button
-    login_button = tk.Button(canvas, text="Login", command=login_user_window, width=15, height=3)
-    canvas.create_window(start_x + button_width + button_space, 180, anchor="nw", window=login_button)
-
+    canvas.create_text(
+        503.0,
+        219.0,
+        anchor="nw",
+        text="Fly Dream Air",
+        fill="#000000",
+        font=("Inter ExtraBold", 32 * -1)
+    )
+    win.resizable(False, False)
     win.mainloop()
+
 
 def userWindow():
 
     win.geometry("1000x800")
     register_button.destroy()
     login_button.destroy()
-    canvas.destroy()
+
 
 
 
