@@ -1,6 +1,12 @@
 # Project Name: Fly Dream Air
 
-### Team Member Names: Ranko, Poh, Prisha, Sreeram
+### Team Member Names:
+|     Name      |     Email     | 
+| ------------- | ------------- |
+| Ranko Kasi Polat  |rkp503@uowmail.edu.au  |
+| Poh Yamone        | py469@uowmail.edu.au  |
+| Sreeram           | @uowmail.edu.au  |
+| Prisha            | @uowmail.edu.au|
 
 ### Date: 14/08/2023
 
