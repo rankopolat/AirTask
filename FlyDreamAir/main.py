@@ -23,39 +23,158 @@ def register_user():
         win.destroy()
         main()
 
-def login_window():
-
-    global rWindow,rName_entry, rEmail_entry, rPass_entry, rFrame
-
-    rWindow = tk.Toplevel(win)
-    rWindow.title("Register User")
-    rWindow.geometry("400x300")
-
-    rFrame = tk.Frame(rWindow)
-    rFrame.pack(pady=20)
-
-    rName_label = tk.Label(rFrame, text="Username:")
-    rName_label.grid(row=0, column=0, padx=10, pady=10, sticky="w")
-    rName_entry = tk.Entry(rFrame)
-    rName_entry.grid(row=0, column=1, padx=10, pady=10)
-
-    rEmail_label = tk.Label(rFrame, text="Email:")
-    rEmail_label.grid(row=2, column=0, padx=10, pady=10, sticky="w")
-    rEmail_entry = tk.Entry(rFrame)
-    rEmail_entry.grid(row=2, column=1, padx=10, pady=10)
-
-    rPass_label = tk.Label(rFrame, text="Password:")
-    rPass_label.grid(row=4, column=0, padx=10, pady=10, sticky="w")
-    rPass_entry = tk.Entry(rFrame)
-    rPass_entry.grid(row=4, column=1, padx=10, pady=10)
-
-    r_button = tk.Button(rFrame, text="Register", command=register_user)
-    r_button.grid(row=6, columnspan=2, pady=20)
-
 def destroy():
 
     win.destroy()
 
+def login_window():
+
+    global win
+
+    destroy()
+
+    win = tk.Tk()
+
+    win.geometry("393x690")
+    win.configure(bg="#DEF7FF")
+
+    canvas = tk.Canvas(
+        win,
+        bg="#DEF7FF",
+        height=690,
+        width=393,
+        bd=0,
+        highlightthickness=0,
+        relief="ridge"
+    )
+
+    canvas.place(x=0, y=0)
+    canvas.create_text(
+        20.0,
+        117.0,
+        anchor="nw",
+        text="Log in",
+        fill="#000000",
+        font=("Poppins Bold", 30 * -1)
+    )
+
+    canvas.create_text(
+        91.0,
+        621.0,
+        anchor="nw",
+        text="Don’t have an account? Sign up",
+        fill="#000000",
+        font=("Inter", 14 * -1)
+    )
+
+    canvas.create_text(
+        172.0,
+        494.0,
+        anchor="nw",
+        text="Log in",
+        fill="#FFFFFF",
+        font=("Inter SemiBold", 16 * -1)
+    )
+
+    button_image_1 = tk.PhotoImage(
+        file=("Resources/button_1.png"))
+    button_1 = tk.Button(
+        image=button_image_1,
+        borderwidth=0,
+        highlightthickness=0,
+        command=lambda: print("button_1 clicked"),
+        relief="flat"
+    )
+    button_1.place(
+        x=19.0,
+        y=514.0,
+        width=353.0,
+        height=56.0
+    )
+
+    button_image_2 = tk.PhotoImage(
+        file=("Resources/arrow.png"))
+    button_2 = tk.Button(
+        image=button_image_2,
+        borderwidth=0,
+        highlightthickness=0,
+        command=main_destroy,
+        relief="flat"
+    )
+    button_2.place(
+        x=7.0,
+        y=11.0,
+        width=47.0,
+        height=47.0
+    )
+
+    image_image_1 = tk.PhotoImage(
+        file=("Resources/image_1.png"))
+    image_1 = canvas.create_image(
+        343.0,
+        69.0,
+        image=image_image_1
+    )
+
+    entry_image_1 = tk.PhotoImage(
+        file=("Resources/entry_1.png"))
+    entry_bg_1 = canvas.create_image(
+        195.5,
+        396.0,
+        image=entry_image_1
+    )
+    entry_1 = tk.Entry(
+        bd=0,
+        bg="#FFFFFF",
+        fg="#000716",
+        highlightthickness=0
+    )
+    entry_1.place(
+        x=29.0,
+        y=368.0,
+        width=333.0,
+        height=54.0
+    )
+
+    canvas.create_text(
+        20.0,
+        336.0,
+        anchor="nw",
+        text="Password",
+        fill="#000000",
+        font=("Inter", 14 * -1)
+    )
+
+    entry_image_2 = tk.PhotoImage(
+        file=("Resources/entry_2.png"))
+    entry_bg_2 = canvas.create_image(
+        196.5,
+        262.0,
+        image=entry_image_2
+    )
+    entry_2 = tk.Entry(
+        bd=0,
+        bg="#FFFFFF",
+        fg="#000716",
+        highlightthickness=0
+    )
+    entry_2.place(
+        x=30.0,
+        y=234.0,
+        width=333.0,
+        height=54.0
+    )
+
+    canvas.create_text(
+        20.0,
+        204.0,
+        anchor="nw",
+        text="Username",
+        fill="#000000",
+        font=("Inter", 14 * -1)
+    )
+    win.resizable(False, False)
+    win.mainloop()
 
 def register_window():
 
@@ -90,7 +209,7 @@ def register_window():
     )
 
     image_image_1 = tk.PhotoImage(
-        file="image_2.png")
+        file="Resources/image_2.png")
     image_1 = canvas.create_image(
         400.0,
         38.0,
@@ -107,7 +226,7 @@ def register_window():
     )
 
     entry_image_1 = tk.PhotoImage(
-        file=("entry_1.png"))
+        file=("Resources/entry_1.png"))
     entry_bg_1 = canvas.create_image(
         200.5,
         119.0,
@@ -136,7 +255,7 @@ def register_window():
     )
 
     entry_image_2 = tk.PhotoImage(
-        file=("entry_2.png"))
+        file=("Resources/entry_2.png"))
     entry_bg_2 = canvas.create_image(
         200.5,
         228.0,
@@ -165,7 +284,7 @@ def register_window():
     )
 
     entry_image_3 = tk.PhotoImage(
-        file=("entry_3.png"))
+        file=("Resources/entry_3.png"))
     canvas.create_image(
         198.5,
         345.0,
@@ -194,7 +313,7 @@ def register_window():
     )
 
     button_image_1 = tk.PhotoImage(
-        file=("button_2.png"))
+        file=("Resources/button_2.png"))
 
     button_3 = tk.Button(
         image=button_image_1,
@@ -258,7 +377,7 @@ def mainWindow():
 
     canvas.place(x=0, y=0)
     image_image_1 = tk.PhotoImage(
-        file=("p.png"))
+        file=("Resources/p.png"))
     image_1 = canvas.create_image(
         599.0,
         124.0,
@@ -266,7 +385,7 @@ def mainWindow():
     )
 
     button_image_1 = tk.PhotoImage(
-        file=("button_1.png"))
+        file=("Resources/button_1.png"))
 
     button_1 = tk.Button(
         image=button_image_1,
@@ -283,7 +402,7 @@ def mainWindow():
     )
 
     button_image_2 = tk.PhotoImage(
-        file=("button_2.png"))
+        file=("Resources/button_2.png"))
     button_2 = tk.Button(
         image=button_image_2,
         borderwidth=0,
@@ -324,9 +443,6 @@ def userWindow():
     win.geometry("1000x800")
     register_button.destroy()
     login_button.destroy()
-
-
-
 
 
 def main():
