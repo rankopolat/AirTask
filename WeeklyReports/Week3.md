@@ -1,7 +1,7 @@
 # Project Name: Fly Dream Air
 
-## Team Member Name: Ranko Polat, Poh, Prisha, Sreeram
-## Date: -----
+### Team Member Names: Ranko, Poh, Prisha, Sreeram
+### Date: -----
 
 ### Work completed this week:
 
