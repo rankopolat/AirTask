@@ -14,7 +14,9 @@ Monday Week 3 - 14/08/2023
 ### Work completed this week:
 
 -Completed a draft copy for the project justification
+
 -Completed the gui and functionality of a database for the main artifact 
+
 -Assigned roles to each individual member
 
 Project Manager: Ranko Polat
