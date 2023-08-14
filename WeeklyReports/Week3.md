@@ -13,16 +13,14 @@ Monday Week 3 - 14/08/2023
 
 ### Work completed this week:
 
--Completed a draft copy for the project justification
+- Completed a draft copy for the project justification
+- Completed the gui and functionality of a database for the main artifact 
+- Assigned roles to each individual member
 
--Completed the gui and functionality of a database for the main artifact 
-
--Assigned roles to each individual member
-
-Project Manager: Ranko Polat
-Project Analyst: Poh Yamone 
-Project Developer:  Sreeram/ Ranko Polat
-Project Planner: Prisha / Sreeram
+- Project Manager: Ranko Polat
+- Project Analyst: Poh Yamone 
+- Project Developer:  Sreeram/ Ranko Polat
+- Project Planner: Prisha / Sreeram
 
 
 ### Work to complete next week:
