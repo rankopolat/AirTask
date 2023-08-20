@@ -15,7 +15,8 @@ Assume that you are members of FlyDreamAir IT team. You are required to select a
 | Poh Yamone        | py469@uowmail.edu.au  |
 | Sreeram           | sps996@uowmail.edu.au  |
 | Prisha            | @uowmail.edu.au|
-
+| Lucas             | @uowmail.edu.au|
+| Sherry            | @uowmail.edu.au|
 
 
 ## Selected Project
