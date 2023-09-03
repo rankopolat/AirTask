@@ -343,10 +343,11 @@ def login_user():
     exists = loginCursor.fetchone()
 
     if exists is None:
-        pass
+        print("username or password is incorrect")
 
     elif exists[0] == username and exists[1] == lPass_entry.get():
         print("Login successful")
+        print("Loading client")
         #destroy()
 
     else:
