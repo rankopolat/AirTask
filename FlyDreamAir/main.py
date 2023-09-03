@@ -29,8 +29,7 @@ def destroy():
 
 def login_window():
 
-    global win
-
+    global lName_entry, win, lPass_entry
     destroy()
 
     win = tk.Tk()
@@ -82,7 +81,7 @@ def login_window():
         image=button_image_1,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("button_1 clicked"),
+        command=lambda: login_user(),
         relief="flat"
     )
     button_1.place(
@@ -123,13 +122,13 @@ def login_window():
         396.0,
         image=entry_image_1
     )
-    entry_1 = tk.Entry(
+    lName_entry = tk.Entry(
         bd=0,
         bg="#FFFFFF",
         fg="#000716",
         highlightthickness=0
     )
-    entry_1.place(
+    lName_entry.place(
         x=29.0,
         y=368.0,
         width=333.0,
@@ -152,13 +151,13 @@ def login_window():
         262.0,
         image=entry_image_2
     )
-    entry_2 = tk.Entry(
+    lPass_entry = tk.Entry(
         bd=0,
         bg="#FFFFFF",
         fg="#000716",
         highlightthickness=0
     )
-    entry_2.place(
+    lPass_entry.place(
         x=30.0,
         y=234.0,
         width=333.0,
@@ -336,24 +335,22 @@ def main_destroy():
     win.destroy()
     main()
 
-
-
-'''def login_user():
+def login_user():
 
     username = lName_entry.get()
+
     loginCursor = Database.conn.execute("SELECT USERNAME,PASSWORD FROM USER WHERE USERNAME = ?", (username,))
     exists = loginCursor.fetchone()
-    mainWindow()
+
     if exists is None:
         pass
 
     elif exists[0] == username and exists[1] == lPass_entry.get():
-       # exist_label.config(text="Login successful")
-        lWindow.destroy()
-        userWindow()
+        print("Login successful")
+        #destroy()
 
     else:
-        exist_label.config( text="username or password is incorrect")'''
+        print("username or password is incorrect")
 
 def mainWindow():
 
