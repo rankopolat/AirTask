@@ -1,7 +1,5 @@
 import sqlite3
 
-
-
 conn = sqlite3.connect('airtask.db')
 
 table = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='USER';").fetchone()

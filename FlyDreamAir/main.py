@@ -1,6 +1,6 @@
 import tkinter  as tk
 from FlyDreamAir.Database import Database
-
+import Client as client
 print("Fly Dream Air")
 print("Group Project")
 
@@ -348,7 +348,8 @@ def login_user():
     elif exists[0] == username and exists[1] == lPass_entry.get():
         print("Login successful")
         print("Loading client")
-        #destroy()
+        destroy()
+        client.clientWindow()
 
     else:
         print("username or password is incorrect")
