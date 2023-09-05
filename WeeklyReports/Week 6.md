@@ -13,7 +13,9 @@
 ### Date: 
 
 Tuesday Week 6  - 05/09/2023
-Duation was for : 25 minutes
+
+Duration was for : 25 minutes
+
 People who attended: Prisha, Ranko, Poh, Lucas
 
 ### Work completed this week:
