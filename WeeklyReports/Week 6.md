@@ -5,45 +5,43 @@
 | ------------- | ------------- |
 | Ranko Kasi Polat  |rkp503@uowmail.edu.au  |
 | Poh Yamone        | py469@uowmail.edu.au  |
+| Prisha            | pj860@uowmail.edu.au|
+| Lucas             | ljw537@uowmail.edu.au|
 | Sreeram           | sps996@uowmail.edu.au  |
-| Prisha            | @uowmail.edu.au|
+| Sherry            | 
 
 ### Date: 
-Monday Week 3 - 14/08/2023
+
+Tuesday Week 6  - 05/09/2023
 
 ### Work completed this week:
 
-- Completed a draft copy for the project justification
-- Completed the gui and functionality of a database for the main artifact 
-- Assigned roles to each individual member
-
-- Project Manager: Ranko Polat
-- Project Analyst: Poh Yamone 
-- Project Developer:  Sreeram/ Ranko Polat
-- Project Planner: Prisha / Sreeram
-
+- assigned roles To all member as we had 3 new additions to the group.
+- Updated code and added login function
 
 ### Work to complete next week:
 
-- Project Stake Holders
-- Risk analysis and SWOT diagram
-- Business Case
-- Loyalty Program rough out
+- Lucas will complete low-fi, High-Fi and WBS
+- Poh Yamone will draft Swot Analysis, Risk assessment
+- Prisha will draft cost estimation
+- Sreeram continue drafting Business case and Justification
+- Ranko complete charter, scope statement and update code
 
 ### What's going well and why:
 
-Currently Everything is moving along efficiently 
-Program has made sufficient progress along with the report
+- Code is upto date and spec
+- Project document is upto date if not ahead
 
 ### Whats not going well and why:
 
-Getting into contact with eachother is seeming to be a bit difficult
+- Getting similar times to have a meeting
+- Communication
 
 ### Suggestions/Issues:
 
-Create a certain day of each week to have a meteting
+- get your priorities correct
+- Have a set weekly meeting
 
 ### Project Changes:
 
-At the beginning we were thinking to do project 1 as we had 5 members in the group however the drop of 1
-member led us to change to project 2
+- Have no project change besides addition of members
