@@ -14,8 +14,8 @@ Assume that you are members of FlyDreamAir IT team. You are required to select a
 | Ranko Kasi Polat  |rkp503@uowmail.edu.au  |
 | Poh Yamone        | py469@uowmail.edu.au  |
 | Sreeram           | sps996@uowmail.edu.au  |
-| Prisha            | @uowmail.edu.au|
-| Lucas             | @uowmail.edu.au|
+| Prisha            | pj860@uowmail.edu.au|
+| Lucas             | ljw537@uowmail.edu.au|
 | Sherry            | @uowmail.edu.au|
 
 
