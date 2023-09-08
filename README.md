@@ -27,3 +27,13 @@ We are going to do Project 2
 ## Weekly Meeting Discussions
 
 [Week 1](https://github.com/rankopolat/AirTask/blob/main/WeeklyReports/Week3.md)
+
+
+
+#Current UI
+![image](https://github.com/rankopolat/AirTask/assets/116534934/e7836556-0f13-437f-999d-44b6752fc286)
+![image](https://github.com/rankopolat/AirTask/assets/116534934/7d3a0db3-a4b3-4ca8-bafa-19e929e8cbad)
+![image](https://github.com/rankopolat/AirTask/assets/116534934/26006dfc-eeba-41dd-8681-f24d3cfc18c8)
+
+
+
