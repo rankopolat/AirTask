@@ -26,6 +26,7 @@ We are going to do Project 2
 ## Weekly Meeting Discussions
 
 [Week 5](https://github.com/rankopolat/AirTask/blob/main/WeeklyReports/Week5.md)
+
 [Week 6](https://github.com/rankopolat/AirTask/blob/main/WeeklyReports/Week6.md)
 
 
