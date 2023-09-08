@@ -1,5 +1,5 @@
+import tkinter as tk
 
-import tkinter  as tk
 def clientWindow():
     window = tk.Tk()
 
