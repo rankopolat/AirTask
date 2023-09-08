@@ -1,5 +1,5 @@
-import tkinter  as tk
-from FlyDreamAir.Database import Database
+import tkinter as tk
+from Database import Database
 import Client as client
 
 print("Fly Dream Air")
