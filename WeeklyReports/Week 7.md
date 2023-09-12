@@ -14,7 +14,7 @@
 
 Tuesday Week 8  - 12/09/2023
 
-Duration was for : 
+Duration was for : 29 minutes
 
 People who attended: Ranko, Poh, Sreeram, Sherry
 
