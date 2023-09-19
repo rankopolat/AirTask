@@ -14,7 +14,7 @@
 
 Tuesday Week 8  - 19/09/2023
 
-Duration was for : 23 minutes
+Duration was for : 20 minutes
 
 People who attended: Ranko, Poh, Sreeram, Prisha
 
