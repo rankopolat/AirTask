@@ -82,7 +82,7 @@ def login_user(lName_entry,lPass_entry):
         print("Loading client")
 
         win.destroy()
-        client.clientWindow()
+        client.mainClientWindow()
 
     else:
         print("password is incorrect")
