@@ -26,6 +26,7 @@ def chessOnClick(event):
 ##global constants
 inputFont = ('Calibri',20)
 
+
 def centre(window):
 
     window.update_idletasks()
@@ -34,6 +35,7 @@ def centre(window):
     x = (win.winfo_x() + win.winfo_width() // 2) - (width // 2)
     y = (win.winfo_y() + win.winfo_height() // 2) - (height // 2)
     window.geometry(f"+{x}+{y}")
+
 
 def toast(message):
 
@@ -45,6 +47,7 @@ def toast(message):
     label.pack(pady=20)
     centre(toast)
     toast.after(1000, toast.destroy)
+
 
 def register_user(rName_entry,rEmail_entry,rPass_entry,rPass2):
 
@@ -67,6 +70,7 @@ def register_user(rName_entry,rEmail_entry,rPass_entry,rPass2):
         frame.destroy()
         entrance()
 
+
 def login_user(lName_entry,lPass_entry):
 
     username = lName_entry.get()
@@ -86,6 +90,8 @@ def login_user(lName_entry,lPass_entry):
 
     else:
         print("password is incorrect")
+
+
 def register_window():
 
     global frame
@@ -168,6 +174,7 @@ def register_window():
     canvas.create_text(297.0, 414.0,anchor="nw",text="Re-Enter Password",fill="#000000",font=bold)
     canvas.create_text(297.0,224.0,anchor="nw",text="Email",fill="#000000",font=bold)
     canvas.create_text(297.0,319.0,anchor="nw",text="Password",fill="#000000",font=bold)
+
 
 def loginWindow():
 
@@ -306,6 +313,7 @@ def entrance():
         font=("MS Serif", 40 * -1, 'bold')
     )
 
+
 def mainWindow():
 
     global win
@@ -319,10 +327,12 @@ def mainWindow():
     win.resizable(False, False)
     win.mainloop()
 
+
 def attemptWindow():
 
     frame.destroy()
     loginWindow()
+
 
 def attemptRegister():
 
