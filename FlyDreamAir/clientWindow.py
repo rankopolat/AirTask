@@ -1,5 +1,6 @@
 import tkinter as tk
 from pathlib import Path
+from Database import Database
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"Resources\clientImages")
@@ -19,6 +20,10 @@ def loyalOnClick(event):
     frame.destroy()
     loyaltyWindow()
 
+def accountOnClick(event):
+    frame.destroy()
+    accountWindow()
+
 def basketOnClick(event):
     frame.destroy()
     cartWindow()
@@ -26,10 +31,18 @@ def basketOnClick(event):
 def update_text(text_item):
 
     current_value = canvas.itemcget(text_item, "text")
-    updated_text = f"{current_value}\npoh save me"
+    updated_text = f"{current_value}\n{username,tier,points}"
     canvas.itemconfig(text_item, text=f"{updated_text}")
 
-def mainClientWindow():
+def mainClientWindow(user):
+
+    global username,tier,points,email
+    loginCursor = Database.conn.execute("SELECT USERNAME,TIER,POINTS,EMAIL FROM USER WHERE USERNAME = ?", (user,))
+    results = loginCursor.fetchone()
+    username = results[0]
+    tier = results[1]
+    points = results[2]
+    email = results[3]
 
     global window
 
@@ -42,6 +55,131 @@ def mainClientWindow():
     window.resizable(False, False)
     window.mainloop()
 
+def accountWindow():
+
+    global frame
+    frame = tk.Frame(window, bg="#FFFFFF")
+    frame.pack(fill="both", expand=True)
+
+    canvas = tk.Canvas(
+        frame,
+        bg="#EFFBFF",
+        height=720,
+        width=1280,
+        bd=0,
+        highlightthickness=0,
+        relief="ridge"
+    )
+
+    canvas.place(x=0, y=0)
+
+    global circlePlane
+    circlePlane = tk.PhotoImage(file=relative_to_assets("circlePlane.png"))
+    canvas.create_image(300.0,380.0, image=circlePlane)
+
+    global account
+    account = tk.PhotoImage(
+        file=relative_to_assets("account.png"))
+    canvas.create_image(550.0, 51.0, image=account)
+
+    global lock
+    lock = tk.PhotoImage(file=relative_to_assets("lock.png"))
+    cart = canvas.create_image(1234.0, 55.0, image=lock)
+    canvas.tag_bind(cart, '<Button-1>', basketOnClick)
+
+    global faqButton
+    faqButton = tk.PhotoImage(file=relative_to_assets("faqButton.png"))
+    image_3 = canvas.create_image(972.0, 51.0, image=faqButton)
+    canvas.tag_bind(image_3, '<Button-1>', faqOnClick)
+
+    global image_image_4
+    image_image_4 = tk.PhotoImage(file=relative_to_assets("loyaltyStoreButton.png"))
+    image_4 = canvas.create_image(838.0, 51.0, image=image_image_4)
+    canvas.tag_bind(image_4, '<Button-1>', loyalOnClick)
+
+    global image_image_5
+    image_image_5 = tk.PhotoImage(file=relative_to_assets("aboutButton.png"))
+    image_5 = canvas.create_image(685.0, 51.0, image=image_image_5)
+
+    global image_image_8
+    image_image_8 = tk.PhotoImage(file=relative_to_assets("chessIconv.png"))
+    image_8 = canvas.create_image(72.0, 61.0, image=image_image_8)
+
+    global image_image_9
+    image_image_9 = tk.PhotoImage(file=relative_to_assets("holder.png"))
+    image_9 = canvas.create_image(198.0, 66.0, image=image_image_9)
+
+    canvas.create_text(
+        118.0,
+        336.0,
+        anchor="nw",
+        text=f"{username.upper()}",
+        fill="#000000",
+        font=("Poppins Bold", 32 * -1)
+    )
+
+    canvas.create_text(
+        91.0,
+        429.0,
+        anchor="nw",
+        text= f"Current Points: {points}",
+        fill="#000000",
+        font=("Poppins Bold", 20 * -1)
+    )
+
+    canvas.create_text(
+        90.0,
+        465.0,
+        anchor="nw",
+        text=f"Tier: {tier}",
+        fill="#000000",
+        font=("Poppins Bold", 20 * -1)
+    )
+
+    canvas.create_text(
+        91.0,
+        501.0,
+        anchor="nw",
+        text= f"Email: {email}",
+        fill="#000000",
+        font=("Poppins Bold", 20 * -1)
+    )
+
+    canvas.create_text(
+        91.0,
+        537.0,
+        anchor="nw",
+        text=f"Username: {username}",
+        fill="#000000",
+        font=("Poppins Bold", 20 * -1)
+    )
+
+    canvas.create_text(
+        90.0,
+        573.0,
+        anchor="nw",
+        text="Date of Birth:  ****",
+        fill="#000000",
+        font=("Poppins Bold", 20 * -1)
+    )
+
+    global accountIcon
+    accountIcon = tk.PhotoImage(
+        file=relative_to_assets("userIcon.png"))
+    image_9 = canvas.create_image(
+        208.0,
+        232.0,
+        image=accountIcon
+    )
+
+    global tierInfo
+    tierInfo = tk.PhotoImage(
+        file=relative_to_assets("tierInfo.png"))
+    canvas.create_image(
+        883.0,
+        393.0,
+        image=tierInfo
+    )
 
 def cartWindow():
 
@@ -71,6 +209,12 @@ def cartWindow():
         image=baskI
     )
     canvas.tag_bind(image_1, '<Button-1>', lambda event: update_text(text_item))
+
+
+    global account
+    account = tk.PhotoImage(
+        file=relative_to_assets("account.png"))
+    canvas.create_image(550.0, 51.0, image=account)
 
 
     global faqButton
@@ -169,6 +313,12 @@ def clientWindow():
     circlePlane = tk.PhotoImage(file=relative_to_assets("circlePlane.png"))
     canvas.create_image(1056.0,100.0,image=circlePlane)
 
+    global account
+    account = tk.PhotoImage(
+        file=relative_to_assets("account.png"))
+    accountB = canvas.create_image(550.0, 51.0, image=account)
+    canvas.tag_bind(accountB, '<Button-1>', accountOnClick)
+
     global lock
     lock = tk.PhotoImage(file=relative_to_assets("lock.png"))
     cart = canvas.create_image(1234.0, 55.0, image=lock)
@@ -233,6 +383,11 @@ def loyaltyWindow():
         image=basket
     )
     canvas.tag_bind(cart, '<Button-1>', basketOnClick)
+
+    global account
+    account = tk.PhotoImage(
+        file=relative_to_assets("account.png"))
+    canvas.create_image(550.0, 51.0, image=account)
 
     global faqB
     faqB = tk.PhotoImage(
@@ -416,6 +571,11 @@ def faqWindow():
     )
 
     canvas.place(x=0, y=0)
+
+    global account
+    account = tk.PhotoImage(
+        file=relative_to_assets("account.png"))
+    canvas.create_image(550.0, 51.0, image=account)
 
     global image_image_1
     image_image_1 = tk.PhotoImage(

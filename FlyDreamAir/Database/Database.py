@@ -8,7 +8,9 @@ if not table:
     conn.execute('''CREATE TABLE USER
          (USERNAME TEXT PRIMARY KEY     NOT NULL,
           EMAIL           TEXT    NOT NULL,
-          PASSWORD       TEXT     NOT NULL);''')
+          PASSWORD       TEXT     NOT NULL,
+          TIER          TEXT      NOT NULL,
+          POINTS        INTEGER   NOT NULL);''')
 
     print("Table created successfully")
 

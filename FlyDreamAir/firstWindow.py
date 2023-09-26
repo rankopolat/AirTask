@@ -64,7 +64,7 @@ def register_user(rName_entry,rEmail_entry,rPass_entry,rPass2):
 
     else:
 
-        Database.conn.execute("INSERT INTO USER (USERNAME, EMAIL, PASSWORD) VALUES (?, ?, ?)", (rName_entry.get(), rEmail_entry.get(), rPass_entry.get()))
+        Database.conn.execute("INSERT INTO USER (USERNAME, EMAIL, PASSWORD, TIER, POINTS) VALUES (?, ?, ?, ?, ?)", (rName_entry.get(), rEmail_entry.get(), rPass_entry.get(),"BLUE", 10000))
         Database.conn.commit()
         toast("User Created")
         frame.destroy()
@@ -86,7 +86,7 @@ def login_user(lName_entry,lPass_entry):
         print("Loading client")
 
         win.destroy()
-        client.mainClientWindow()
+        client.mainClientWindow(username)
 
     else:
         print("password is incorrect")
