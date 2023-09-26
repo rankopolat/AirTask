@@ -11,6 +11,24 @@ def faqOnClick(event):
     frame.destroy()
     faqWindow()
 
+def homeClick(event):
+    frame.destroy()
+    clientWindow()
+
+def loyalOnClick(event):
+    frame.destroy()
+    loyaltyWindow()
+
+def basketOnClick(event):
+    frame.destroy()
+    cartWindow()
+
+def update_text(text_item):
+
+    current_value = canvas.itemcget(text_item, "text")
+    updated_text = f"{current_value}\npoh save me"
+    canvas.itemconfig(text_item, text=f"{updated_text}")
+
 def mainClientWindow():
 
     global window
@@ -24,10 +42,114 @@ def mainClientWindow():
     window.resizable(False, False)
     window.mainloop()
 
+
+def cartWindow():
+
+    global frame
+    frame = tk.Frame(window, bg="#FFFFFF")
+    frame.pack(fill="both", expand=True)
+
+    global canvas
+    canvas = tk.Canvas(
+        window,
+        bg="#EFFBFF",
+        height=720,
+        width=1280,
+        bd=0,
+        highlightthickness=0,
+        relief="ridge"
+    )
+
+    canvas.place(x=0, y=0)
+
+    global baskI
+    baskI = tk.PhotoImage(
+        file=relative_to_assets("basketIcon.png"))
+    image_1 = canvas.create_image(
+        1227.0,
+        48.0,
+        image=baskI
+    )
+    canvas.tag_bind(image_1, '<Button-1>', lambda event: update_text(text_item))
+
+
+    global faqButton
+    faqButton = tk.PhotoImage(
+        file=relative_to_assets("faqButton.png"))
+    image_2 = canvas.create_image(
+        972.0,
+        51.0,
+        image=faqButton
+    )
+
+    global lB
+    lB = tk.PhotoImage(
+        file=relative_to_assets("loyaltyStoreButton.png"))
+    image_3 = canvas.create_image(
+        838.0,
+        51.0,
+        image=lB
+    )
+
+    global aB
+    aB = tk.PhotoImage(
+        file=relative_to_assets("aboutButton.png"))
+    image_4 = canvas.create_image(
+        685.0,
+        51.0,
+        image=aB
+    )
+
+    global cI
+    cI = tk.PhotoImage(
+        file=relative_to_assets("chessIconv.png"))
+    image_5 = canvas.create_image(
+        72.0,
+        61.0,
+        image=cI
+    )
+    canvas.tag_bind(image_5, '<Button-1>', homeClick)
+
+    global textHolder
+    textHolder = tk.PhotoImage(
+        file=relative_to_assets("holder.png"))
+    image_6 = canvas.create_image(
+        198.0,
+        66.0,
+        image=textHolder
+    )
+
+    canvas.create_rectangle(
+        315.0,
+        166.0,
+        991.0,
+        701.0,
+        fill="#FFFFFF",
+        outline="")
+
+    global shopTitle
+    shopTitle = tk.PhotoImage(
+        file=relative_to_assets("shopTitle.png"))
+    image_7 = canvas.create_image(
+        640.0,
+        124.0,
+        image=shopTitle
+    )
+
+    text_item = canvas.create_text(
+        324.0,
+        176.0,
+        anchor="nw",
+        text="wow",
+        fill="#000000",
+        font=("Jaldi Bold", 32 * -1)
+    )
+
+
+
 def clientWindow():
 
     global frame
-
     frame = tk.Frame(window, bg="#FFFFFF")
     frame.pack(fill="both", expand=True)
 
@@ -49,7 +171,8 @@ def clientWindow():
 
     global lock
     lock = tk.PhotoImage(file=relative_to_assets("lock.png"))
-    canvas.create_image(1234.0, 55.0, image=lock)
+    cart = canvas.create_image(1234.0, 55.0, image=lock)
+    canvas.tag_bind(cart, '<Button-1>', basketOnClick)
 
     global faqButton
     faqButton = tk.PhotoImage(file=relative_to_assets("faqButton.png"))
@@ -59,6 +182,7 @@ def clientWindow():
     global image_image_4
     image_image_4 = tk.PhotoImage(file=relative_to_assets("loyaltyStoreButton.png"))
     image_4 = canvas.create_image(838.0,51.0,image=image_image_4)
+    canvas.tag_bind(image_4, '<Button-1>', loyalOnClick)
 
     global image_image_5
     image_image_5 = tk.PhotoImage(file=relative_to_assets("aboutButton.png"))
@@ -71,6 +195,7 @@ def clientWindow():
     global image_image_7
     image_image_7 = tk.PhotoImage(file=relative_to_assets("loyaltyButton.png"))
     image_7 = canvas.create_image(220.0,559.0,image=image_image_7)
+    canvas.tag_bind(image_7, '<Button-1>', loyalOnClick)
 
     global image_image_8
     image_image_8 = tk.PhotoImage(file=relative_to_assets("chessIconv.png"))
@@ -79,6 +204,200 @@ def clientWindow():
     global image_image_9
     image_image_9 = tk.PhotoImage(file=relative_to_assets("holder.png"))
     image_9 = canvas.create_image(198.0,66.0,image=image_image_9)
+
+
+def loyaltyWindow():
+
+    global frame
+    frame = tk.Frame(window, bg="#FFFFFF")
+    frame.pack(fill="both", expand=True)
+
+    canvas = tk.Canvas(
+        frame,
+        bg="#EFFBFF",
+        height=720,
+        width=1280,
+        bd=0,
+        highlightthickness=0,
+        relief="ridge"
+    )
+
+    canvas.place(x=0, y=0)
+
+    global basket
+    basket = tk.PhotoImage(
+        file=relative_to_assets("lock.png"))
+    cart = canvas.create_image(
+        1234.0,
+        55.0,
+        image=basket
+    )
+    canvas.tag_bind(cart, '<Button-1>', basketOnClick)
+
+    global faqB
+    faqB = tk.PhotoImage(
+        file=relative_to_assets("faqButton.png"))
+    image_2 = canvas.create_image(
+        972.0,
+        51.0,
+        image=faqB
+    )
+    canvas.tag_bind(image_2, '<Button-1>', faqOnClick)
+
+    global loyaltyC
+    loyaltyC = tk.PhotoImage(
+        file=relative_to_assets("lotaltyClicked.png"))
+    image_3 = canvas.create_image(
+        838.0,
+        51.0,
+        image=loyaltyC
+    )
+
+    global aboutB
+    aboutB = tk.PhotoImage(
+        file=relative_to_assets("aboutButton.png"))
+    image_4 = canvas.create_image(
+        685.0,
+        51.0,
+        image=aboutB
+    )
+
+    global ChessI
+    ChessI = tk.PhotoImage(
+        file=relative_to_assets("chessIconv.png"))
+    image_5 = canvas.create_image(
+        72.0,
+        61.0,
+        image=ChessI
+    )
+    canvas.tag_bind(image_5, '<Button-1>', homeClick)
+
+    global textH
+    textH = tk.PhotoImage(
+        file=relative_to_assets("holder.png"))
+    image_6 = canvas.create_image(
+        198.0,
+        66.0,
+        image=textH
+    )
+
+    global shopItem1
+    shopItem1 = tk.PhotoImage(
+        file=relative_to_assets("shopItem.png"))
+    image_7 = canvas.create_image(
+        332.0,
+        287.0,
+        image=shopItem1
+    )
+
+    global shopItem2
+    shopItem2 = tk.PhotoImage(
+        file=relative_to_assets("shopItem.png"))
+    image_8 = canvas.create_image(
+        736.0,
+        287.0,
+        image= shopItem2
+    )
+
+    global shopItem3
+    shopItem3 = tk.PhotoImage(
+        file=relative_to_assets("shopItem.png"))
+    image_9 = canvas.create_image(
+        945.0,
+        287.0,
+        image=shopItem3
+    )
+
+    global shopItem4
+    shopItem4 = tk.PhotoImage(
+        file=relative_to_assets("shopItem.png"))
+    image_10 = canvas.create_image(
+        1146.0,
+        287.0,
+        image=shopItem4
+    )
+
+    global shopItem5
+    shopItem5 = tk.PhotoImage(
+        file=relative_to_assets("shopItem.png"))
+    image_11 = canvas.create_image(
+        133.0,
+        548.0,
+        image=shopItem5
+    )
+
+    global shopItem6
+    shopItem6 = tk.PhotoImage(
+        file=relative_to_assets("shopItem.png"))
+    image_12 = canvas.create_image(
+        332.0,
+        548.0,
+        image=shopItem6
+    )
+
+    global shopItem7
+    shopItem7 = tk.PhotoImage(
+        file=relative_to_assets("shopItem.png"))
+    image_13 = canvas.create_image(
+        531.0,
+        548.0,
+        image=shopItem7
+    )
+
+    global shopItem8
+    shopItem8 = tk.PhotoImage(
+        file=relative_to_assets("shopItem.png"))
+    image_14 = canvas.create_image(
+        736.0,
+        548.0,
+        image=shopItem8
+    )
+
+    global shopItem9
+    shopItem9 = tk.PhotoImage(
+        file=relative_to_assets("shopItem.png"))
+    image_15 = canvas.create_image(
+        945.0,
+        548.0,
+        image=shopItem9
+    )
+
+    global shopItem10
+    shopItem10 = tk.PhotoImage(
+        file=relative_to_assets("shopItem.png"))
+    image_16 = canvas.create_image(
+        1146.0,
+        548.0,
+        image=shopItem10
+    )
+
+    global shopItem11
+    shopItem11 = tk.PhotoImage(
+        file=relative_to_assets("shopItem.png"))
+    image_17 = canvas.create_image(
+        531.0,
+        287.0,
+        image=shopItem11
+    )
+
+    global shopItem12
+    shopItem12 = tk.PhotoImage(
+        file=relative_to_assets("shopItem.png"))
+    image_18 = canvas.create_image(
+        133.0,
+        287.0,
+        image=shopItem12
+    )
+
+    global image_image_19
+    image_image_19 = tk.PhotoImage(
+        file=relative_to_assets("holder2.png"))
+    image_19 = canvas.create_image(
+        640.0,
+        120.0,
+        image=image_image_19
+    )
+
 
 def faqWindow():
 
@@ -101,11 +420,12 @@ def faqWindow():
     global image_image_1
     image_image_1 = tk.PhotoImage(
         file=relative_to_assets("lock.png"))
-    image_1 = canvas.create_image(
+    cart = canvas.create_image(
         1234.0,
         55.0,
         image=image_image_1
     )
+    canvas.tag_bind(cart, '<Button-1>', basketOnClick)
 
     global image_image_2
     image_image_2 = tk.PhotoImage(
@@ -119,11 +439,9 @@ def faqWindow():
     global image_image_3
     image_image_3 = tk.PhotoImage(
         file=relative_to_assets("loyaltyStoreButton.png"))
-    image_3 = canvas.create_image(
-        838.0,
-        51.0,
-        image=image_image_3
-    )
+    image_3 = canvas.create_image(838.0,51.0,image=image_image_3)
+    canvas.tag_bind(image_3, '<Button-1>', loyalOnClick)
+
 
     global image_image_4
     image_image_4 = tk.PhotoImage(
@@ -139,6 +457,7 @@ def faqWindow():
         file=relative_to_assets("chessIconv.png"))
     image_5 = canvas.create_image(72.0,61.0,image=image_image_5
     )
+    canvas.tag_bind(image_5, '<Button-1>', homeClick)
 
     global image_image_6
     image_image_6 = tk.PhotoImage(
