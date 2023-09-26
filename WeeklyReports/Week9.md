@@ -16,7 +16,7 @@ Tuesday Week 9  - 26/09/2023
 
 Duration was for : 35 minutes
 
-People who attended: Ranko, Poh, Sreeram, Lucas
+People who attended: Ranko, Poh, Sreeram, Lucas, Sherry
 
 ### Work completed this week:
 
