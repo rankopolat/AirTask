@@ -5,38 +5,10 @@ from Database import Database
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"Resources\clientImages")
 
-def relative_to_assets(path: str) -> Path:
-    return ASSETS_PATH / Path(path)
 
-def faqOnClick(event):
-    frame.destroy()
-    faqWindow()
+def updateInfo(user):
 
-def homeClick(event):
-    frame.destroy()
-    clientWindow()
-
-def loyalOnClick(event):
-    frame.destroy()
-    loyaltyWindow()
-
-def accountOnClick(event):
-    frame.destroy()
-    accountWindow()
-
-def basketOnClick(event):
-    frame.destroy()
-    cartWindow()
-
-def update_text(text_item):
-
-    current_value = canvas.itemcget(text_item, "text")
-    updated_text = f"{current_value}\n{username,tier,points}"
-    canvas.itemconfig(text_item, text=f"{updated_text}")
-
-def mainClientWindow(user):
-
-    global username,tier,points,email
+    global username, tier, points, email
     loginCursor = Database.conn.execute("SELECT USERNAME,TIER,POINTS,EMAIL FROM USER WHERE USERNAME = ?", (user,))
     results = loginCursor.fetchone()
     username = results[0]
@@ -44,8 +16,48 @@ def mainClientWindow(user):
     points = results[2]
     email = results[3]
 
-    global window
+def relative_to_assets(path: str) -> Path:
+    return ASSETS_PATH / Path(path)
 
+def faqOnClick(event):
+    frame.destroy()
+    updateInfo(username)
+    faqWindow()
+
+def homeClick(event):
+    frame.destroy()
+    updateInfo(username)
+    clientWindow()
+
+def loyalOnClick(event):
+    frame.destroy()
+    updateInfo(username)
+    loyaltyWindow()
+
+def accountOnClick(event):
+    frame.destroy()
+    updateInfo(username)
+    accountWindow()
+
+def basketOnClick(event):
+    frame.destroy()
+    updateInfo(username)
+    cartWindow()
+
+def update_text(text_item):
+
+    Database.conn.execute("UPDATE USER SET TIER = ? WHERE USERNAME = ?", ("SILVER", username))
+    Database.conn.commit()
+
+    current_value = canvas.itemcget(text_item, "text")
+    updated_text = f"{current_value}\n{username,tier,points}"
+    canvas.itemconfig(text_item, text=f"{updated_text}")
+
+def mainClientWindow(user):
+
+    updateInfo(user)
+
+    global window
     window = tk.Tk()
     window.title("Fly Dream Air")
     window.geometry("1280x720")
@@ -79,7 +91,7 @@ def accountWindow():
 
     global account
     account = tk.PhotoImage(
-        file=relative_to_assets("account.png"))
+        file=relative_to_assets("clickedAccount.png"))
     canvas.create_image(550.0, 51.0, image=account)
 
     global lock
@@ -214,7 +226,8 @@ def cartWindow():
     global account
     account = tk.PhotoImage(
         file=relative_to_assets("account.png"))
-    canvas.create_image(550.0, 51.0, image=account)
+    accountI = canvas.create_image(550.0, 51.0, image=account)
+    canvas.tag_bind(accountI, '<Button-1>', accountOnClick)
 
 
     global faqButton
@@ -225,6 +238,7 @@ def cartWindow():
         51.0,
         image=faqButton
     )
+    canvas.tag_bind(image_2, '<Button-1>', faqOnClick)
 
     global lB
     lB = tk.PhotoImage(
@@ -234,6 +248,8 @@ def cartWindow():
         51.0,
         image=lB
     )
+    canvas.tag_bind(image_3, '<Button-1>', loyalOnClick)
+
 
     global aB
     aB = tk.PhotoImage(
@@ -243,6 +259,7 @@ def cartWindow():
         51.0,
         image=aB
     )
+
 
     global cI
     cI = tk.PhotoImage(
@@ -387,7 +404,8 @@ def loyaltyWindow():
     global account
     account = tk.PhotoImage(
         file=relative_to_assets("account.png"))
-    canvas.create_image(550.0, 51.0, image=account)
+    accountI = canvas.create_image(550.0, 51.0, image=account)
+    canvas.tag_bind(accountI, '<Button-1>', accountOnClick)
 
     global faqB
     faqB = tk.PhotoImage(
@@ -575,7 +593,8 @@ def faqWindow():
     global account
     account = tk.PhotoImage(
         file=relative_to_assets("account.png"))
-    canvas.create_image(550.0, 51.0, image=account)
+    accountI = canvas.create_image(550.0, 51.0, image=account)
+    canvas.tag_bind(accountI, '<Button-1>', accountOnClick)
 
     global image_image_1
     image_image_1 = tk.PhotoImage(
@@ -590,11 +609,7 @@ def faqWindow():
     global image_image_2
     image_image_2 = tk.PhotoImage(
         file=relative_to_assets("clickedFAQ.png"))
-    image_2 = canvas.create_image(
-        972.0,
-        51.0,
-        image=image_image_2
-    )
+    image_2 = canvas.create_image(972.0,51.0,image=image_image_2)
 
     global image_image_3
     image_image_3 = tk.PhotoImage(
@@ -606,11 +621,7 @@ def faqWindow():
     global image_image_4
     image_image_4 = tk.PhotoImage(
         file=relative_to_assets("aboutButton.png"))
-    image_4 = canvas.create_image(
-        685.0,
-        51.0,
-        image=image_image_4
-    )
+    image_4 = canvas.create_image(685.0,51.0,image=image_image_4)
 
     global image_image_5
     image_image_5 = tk.PhotoImage(
@@ -622,71 +633,39 @@ def faqWindow():
     global image_image_6
     image_image_6 = tk.PhotoImage(
         file=relative_to_assets("holder.png"))
-    image_6 = canvas.create_image(
-        198.0,
-        66.0,
-        image=image_image_6
-    )
+    image_6 = canvas.create_image(198.0,66.0,image=image_image_6)
 
     global image_image_7
     image_image_7 = tk.PhotoImage(
         file=relative_to_assets("faqHolder.png"))
-    image_7 = canvas.create_image(
-        639.0,
-        151.0,
-        image=image_image_7
-    )
+    image_7 = canvas.create_image(639.0,151.0,image=image_image_7)
 
     global image_image_8
     image_image_8 = tk.PhotoImage(
         file=relative_to_assets("loyaltyHolder.png"))
-    image_8 = canvas.create_image(
-        195.0,
-        198.0,
-        image=image_image_8
-    )
+    image_8 = canvas.create_image(195.0,198.0,image=image_image_8)
 
     global image_image_9
     image_image_9 = tk.PhotoImage(
         file=relative_to_assets("loyaltyInfo.png"))
-    image_9 = canvas.create_image(
-        635.0,
-        284.0,
-        image=image_image_9
-    )
+    image_9 = canvas.create_image(635.0,284.0,image=image_image_9)
 
     global image_image_10
     image_image_10 = tk.PhotoImage(
         file=relative_to_assets("pointsHolder.png"))
-    image_10 = canvas.create_image(
-        200.0,
-        381.0,
-        image=image_image_10
-    )
+    image_10 = canvas.create_image(200.0,381.0,image=image_image_10)
 
     global image_image_11
     image_image_11 = tk.PhotoImage(
         file=relative_to_assets("pointsInfo.png"))
-    image_11 = canvas.create_image(
-        637.0,
-        458.0,
-        image=image_image_11
-    )
+    image_11 = canvas.create_image(610.0,458.0,image=image_image_11)
 
     global image_image_12
     image_image_12 = tk.PhotoImage(
         file=relative_to_assets("requireHolder.png"))
-    image_12 = canvas.create_image(
-        292.0,
-        546.0,
-        image=image_image_12
-    )
+    image_12 = canvas.create_image(292.0,546.0,image=image_image_12)
 
     global image_image_13
     image_image_13 = tk.PhotoImage(
         file=relative_to_assets("requireInfo.png"))
-    image_13 = canvas.create_image(
-        650.0,
-        631.0,
-        image=image_image_13
-    )
+    image_13 = canvas.create_image(650.0,631.0,image=image_image_13)
