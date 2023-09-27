@@ -5,7 +5,7 @@ from Database import Database
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"Resources\clientImages")
 
-
+text = ""
 def updateInfo(user):
 
     global username, tier, points, email
@@ -44,14 +44,17 @@ def basketOnClick(event):
     updateInfo(username)
     cartWindow()
 
-def update_text(text_item):
+def update_text():
 
+    global text
     Database.conn.execute("UPDATE USER SET TIER = ? WHERE USERNAME = ?", ("SILVER", username))
     Database.conn.commit()
 
-    current_value = canvas.itemcget(text_item, "text")
-    updated_text = f"{current_value}\n{username,tier,points}"
-    canvas.itemconfig(text_item, text=f"{updated_text}")
+    updated = f"{text}\n{username,tier,points}"
+
+    text = f"{text}\n{updated}"
+
+
 
 def mainClientWindow(user):
 
@@ -220,7 +223,7 @@ def cartWindow():
         48.0,
         image=baskI
     )
-    canvas.tag_bind(image_1, '<Button-1>', lambda event: update_text(text_item))
+    canvas.tag_bind(image_1, '<Button-1>', lambda event: update_text())
 
 
     global account
@@ -301,7 +304,7 @@ def cartWindow():
         324.0,
         176.0,
         anchor="nw",
-        text="wow",
+        text=f"{text}",
         fill="#000000",
         font=("Jaldi Bold", 32 * -1)
     )

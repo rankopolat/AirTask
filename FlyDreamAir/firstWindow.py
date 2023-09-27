@@ -51,9 +51,22 @@ def toast(message):
 
 def register_user(rName_entry,rEmail_entry,rPass_entry,rPass2):
 
+    if(rName_entry.get() == ""):
+        toast("Please enter a username")
+        return
+
+    if (rEmail_entry.get() == ""):
+        toast("Please enter a email")
+        return
+
+    if (rPass_entry.get() == ""):
+        toast("Please enter a password")
+        return
+
     if(rPass2.get() != rPass_entry.get()):
         toast("Passwords dont match")
         return
+
     # Check if the username already exists
     cursor = Database.conn.execute("SELECT COUNT(*) FROM USER WHERE USERNAME = ?", (rName_entry.get(),))
     exists = cursor.fetchone()[0]
