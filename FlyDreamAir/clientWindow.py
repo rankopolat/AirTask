@@ -44,6 +44,39 @@ def basketOnClick(event):
     updateInfo(username)
     cartWindow()
 
+def itemOnClick(item):
+
+    print(f"Clicked item {item}")
+
+    match item:
+        case 1:
+            print("Item 1")
+        case 2:
+            print("Item 2")
+        case 3:
+            print("Item 3")
+        case 4:
+            print("Item 4")
+        case 5:
+            print("Item 5")
+        case 6:
+            print("Item 6")
+        case 7:
+            print("Item 7")
+        case 8:
+            print("Item 8")
+        case 9:
+            print("Item 9")
+        case 10:
+            print("Item 10")
+        case 11:
+            print("Item 11")
+        case 12:
+            print("Item 12")
+        case 13:
+            print("Item 13")
+
+
 def update_text():
 
     global text
@@ -465,6 +498,7 @@ def loyaltyWindow():
         287.0,
         image=shopItem1
     )
+    canvas.tag_bind(image_7, '<Button-1>', lambda event, item=1: itemOnClick(item))
 
     global shopItem2
     shopItem2 = tk.PhotoImage(
@@ -474,6 +508,7 @@ def loyaltyWindow():
         287.0,
         image= shopItem2
     )
+    canvas.tag_bind(image_8, '<Button-1>', lambda event, item=2: itemOnClick(item))
 
     global shopItem3
     shopItem3 = tk.PhotoImage(
@@ -483,6 +518,7 @@ def loyaltyWindow():
         287.0,
         image=shopItem3
     )
+    canvas.tag_bind(image_9, '<Button-1>', lambda event, item=3: itemOnClick(item))
 
     global shopItem4
     shopItem4 = tk.PhotoImage(
@@ -492,6 +528,7 @@ def loyaltyWindow():
         287.0,
         image=shopItem4
     )
+    canvas.tag_bind(image_10, '<Button-1>', lambda event, item=4: itemOnClick(item))
 
     global shopItem5
     shopItem5 = tk.PhotoImage(
@@ -501,6 +538,7 @@ def loyaltyWindow():
         548.0,
         image=shopItem5
     )
+    canvas.tag_bind(image_11, '<Button-1>', lambda event, item=5: itemOnClick(item))
 
     global shopItem6
     shopItem6 = tk.PhotoImage(
@@ -510,6 +548,7 @@ def loyaltyWindow():
         548.0,
         image=shopItem6
     )
+    canvas.tag_bind(image_12, '<Button-1>', lambda event, item=6: itemOnClick(item))
 
     global shopItem7
     shopItem7 = tk.PhotoImage(
@@ -519,6 +558,7 @@ def loyaltyWindow():
         548.0,
         image=shopItem7
     )
+    canvas.tag_bind(image_13, '<Button-1>', lambda event, item=7: itemOnClick(item))
 
     global shopItem8
     shopItem8 = tk.PhotoImage(
@@ -528,6 +568,7 @@ def loyaltyWindow():
         548.0,
         image=shopItem8
     )
+    canvas.tag_bind(image_14, '<Button-1>', lambda event, item=8: itemOnClick(item))
 
     global shopItem9
     shopItem9 = tk.PhotoImage(
@@ -537,6 +578,7 @@ def loyaltyWindow():
         548.0,
         image=shopItem9
     )
+    canvas.tag_bind(image_15, '<Button-1>', lambda event, item=9: itemOnClick(item))
 
     global shopItem10
     shopItem10 = tk.PhotoImage(
@@ -546,6 +588,7 @@ def loyaltyWindow():
         548.0,
         image=shopItem10
     )
+    canvas.tag_bind(image_16, '<Button-1>', lambda event, item=10: itemOnClick(item))
 
     global shopItem11
     shopItem11 = tk.PhotoImage(
@@ -555,6 +598,7 @@ def loyaltyWindow():
         287.0,
         image=shopItem11
     )
+    canvas.tag_bind(image_17, '<Button-1>', lambda event, item=11: itemOnClick(item))
 
     global shopItem12
     shopItem12 = tk.PhotoImage(
@@ -564,6 +608,7 @@ def loyaltyWindow():
         287.0,
         image=shopItem12
     )
+    canvas.tag_bind(image_18, '<Button-1>', lambda event, item=12: itemOnClick(item))
 
     global image_image_19
     image_image_19 = tk.PhotoImage(
@@ -573,6 +618,7 @@ def loyaltyWindow():
         120.0,
         image=image_image_19
     )
+    canvas.tag_bind(image_19, '<Button-1>', lambda event, item=13: itemOnClick(item))
 
 
 def faqWindow():
