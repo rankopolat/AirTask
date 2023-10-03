@@ -28,7 +28,7 @@ We are going to do Project 2
 
 [Week 6](https://github.com/rankopolat/AirTask/blob/main/WeeklyReports/Week6.md)
 
-[Week 7](https://github.com/rankopolat/AirTask/blob/main/WeeklyReports/Week 7.md)
+[Week 7](https://github.com/rankopolat/AirTask/blob/main/WeeklyReports/Week7.md)
 
 [Week 8](https://github.com/rankopolat/AirTask/blob/main/WeeklyReports/Week8.md)
 
