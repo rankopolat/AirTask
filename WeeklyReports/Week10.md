@@ -14,7 +14,7 @@
 
 Tuesday Week 10  - 03/10/2023
 
-Duration was for : 40 minutes
+Duration was for : 60 minutes
 
 People who attended: Ranko, Poh, Sreeram, Prisha
 
