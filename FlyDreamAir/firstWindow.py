@@ -77,7 +77,7 @@ def register_user(rName_entry,rEmail_entry,rPass_entry,rPass2):
 
     else:
 
-        Database.conn.execute("INSERT INTO USER (USERNAME, EMAIL, PASSWORD, TIER, POINTS) VALUES (?, ?, ?, ?, ?)", (rName_entry.get(), rEmail_entry.get(), rPass_entry.get(),"BLUE", 10000))
+        Database.conn.execute("INSERT INTO USER (USERNAME, EMAIL, PASSWORD, TIER, POINTS) VALUES (?, ?, ?, ?, ?)", (rName_entry.get(), rEmail_entry.get(), rPass_entry.get(),"BASIC", 100000))
         Database.conn.commit()
         toast("User Created")
         frame.destroy()

@@ -5,7 +5,8 @@ from Database import Database
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"Resources\clientImages")
 
-text = ""
+text = "\n"
+total = 0
 def updateInfo(user):
 
     global username, tier, points, email
@@ -47,34 +48,58 @@ def basketOnClick(event):
 def itemOnClick(item):
 
     print(f"Clicked item {item}")
+    global text
+    global total
 
     match item:
         case 1:
-            print("Item 1")
+            print("BLUE")
+            text += f"{'Blue Tier Upgrade':<78}1000\n"
+            total += 1000
         case 2:
-            print("Item 2")
+            print("SILVER")
+            text += f"{'Silver Tier Upgrade':<79}2000\n"
+            total += 2000
         case 3:
-            print("Item 3")
+            print("GOLD")
+            text += f"{'Gold Tier Upgrade':<78}3000\n"
+            total += 3000
         case 4:
-            print("Item 4")
+            print("PLATINUM")
+            text += f"{'Platinum Tier Upgrade':<77}5000\n"
+            total += 5000
         case 5:
-            print("Item 5")
+            print("BUSINESS")
+            text += f"{'Business Class Upgrade':<75}5000\n"
+            total += 5000
         case 6:
-            print("Item 6")
+            print("FIRST CLASS")
+            text += f"{'First Class Upgrade':<78}8000\n"
+            total += 8000
         case 7:
-            print("Item 7")
+            print("ACTIVE DISCOUNT")
+            text += f"{'$50 Active Discount':<78}2000\n"
+            total += 2000
         case 8:
-            print("Item 8")
+            print("MONOS SUITCASE")
+            text += f"{'Monos Suitcase':<78}2500\n"
+            total += 2500
         case 9:
-            print("Item 9")
+            print("SHANGRI-LA")
+            text += f"{'2 Nights at Shangri-La':<77}5000\n"
+            total += 5000
         case 10:
-            print("Item 10")
+            print("20% DISCOUNT")
+            text += f"{'20% off Air Travel Accessories':<72}1500\n"
+            total += 1500
         case 11:
-            print("Item 11")
+            print("APPLE GIFT CARD")
+            text += f"{'$50 Apple Gift Card':<78}2000\n"
+            total += 2000
         case 12:
-            print("Item 12")
-        case 13:
-            print("Item 13")
+            print("ECONOMY PLUS")
+            text += f"{'Economy Plus Upgrade':<74}2000\n"
+            total += 2000
 
 
 def update_text():
@@ -166,6 +191,7 @@ def accountWindow():
         font=("Poppins Bold", 32 * -1)
     )
 
+
     canvas.create_text(
         91.0,
         429.0,
@@ -248,9 +274,18 @@ def cartWindow():
 
     canvas.place(x=0, y=0)
 
+    global image_image_1
+    image_image_1 = tk.PhotoImage(
+        file=relative_to_assets("stretchedBack.png"))
+    canvas.create_image(
+        500.0,
+        400.0,
+        image=image_image_1
+    )
+
     global baskI
     baskI = tk.PhotoImage(
-        file=relative_to_assets("basketIcon.png"))
+        file=relative_to_assets("lock.png"))
     image_1 = canvas.create_image(
         1227.0,
         48.0,
@@ -316,30 +351,31 @@ def cartWindow():
         image=textHolder
     )
 
-    canvas.create_rectangle(
-        315.0,
-        166.0,
-        991.0,
-        701.0,
-        fill="#FFFFFF",
-        outline="")
-
-    global shopTitle
-    shopTitle = tk.PhotoImage(
-        file=relative_to_assets("shopTitle.png"))
-    image_7 = canvas.create_image(
-        640.0,
-        124.0,
-        image=shopTitle
+    global image_image_8
+    image_image_8 = tk.PhotoImage(
+        file=relative_to_assets("cartScreen.png"))
+    canvas.create_image(
+        653.0,
+        394.0,
+        image=image_image_8
     )
 
     text_item = canvas.create_text(
-        324.0,
-        176.0,
+        359.0,
+        253.0,
         anchor="nw",
         text=f"{text}",
         fill="#000000",
-        font=("Jaldi Bold", 32 * -1)
+        font=("TkFixedFont", 17 * -1)
+    )
+
+    canvas.create_text(
+        885.0,
+        620.0,
+        anchor="nw",
+        text=f"{total}",
+        fill="#000000",
+        font=("TkFixedFont", 17 * -1)
     )
 
 
@@ -492,59 +528,51 @@ def loyaltyWindow():
 
     global shopItem1
     shopItem1 = tk.PhotoImage(
-        file=relative_to_assets("shopItem.png"))
-    image_7 = canvas.create_image(
-        332.0,
-        287.0,
-        image=shopItem1
-    )
+    file=relative_to_assets("blue.png"))
+    image_7 = canvas.create_image(120.0,280.0,image=shopItem1)
     canvas.tag_bind(image_7, '<Button-1>', lambda event, item=1: itemOnClick(item))
 
     global shopItem2
-    shopItem2 = tk.PhotoImage(
-        file=relative_to_assets("shopItem.png"))
+    shopItem2 = tk.PhotoImage(file=relative_to_assets("silver.png"))
     image_8 = canvas.create_image(
-        736.0,
-        287.0,
-        image= shopItem2
+        326.0,
+        280.0,
+        image=shopItem2
     )
     canvas.tag_bind(image_8, '<Button-1>', lambda event, item=2: itemOnClick(item))
 
     global shopItem3
-    shopItem3 = tk.PhotoImage(
-        file=relative_to_assets("shopItem.png"))
+    shopItem3 = tk.PhotoImage(file=relative_to_assets("gold.png"))
     image_9 = canvas.create_image(
-        945.0,
-        287.0,
+        534.0,
+        280.0,
         image=shopItem3
     )
     canvas.tag_bind(image_9, '<Button-1>', lambda event, item=3: itemOnClick(item))
 
     global shopItem4
-    shopItem4 = tk.PhotoImage(
-        file=relative_to_assets("shopItem.png"))
+    shopItem4 = tk.PhotoImage(file=relative_to_assets("platinum.png"))
     image_10 = canvas.create_image(
-        1146.0,
-        287.0,
+        744.0,
+        280.0,
         image=shopItem4
     )
     canvas.tag_bind(image_10, '<Button-1>', lambda event, item=4: itemOnClick(item))
 
     global shopItem5
-    shopItem5 = tk.PhotoImage(
-        file=relative_to_assets("shopItem.png"))
+    shopItem5 = tk.PhotoImage(file=relative_to_assets("business.png"))
     image_11 = canvas.create_image(
-        133.0,
-        548.0,
+        1154.0,
+        280.0,
         image=shopItem5
     )
     canvas.tag_bind(image_11, '<Button-1>', lambda event, item=5: itemOnClick(item))
 
     global shopItem6
     shopItem6 = tk.PhotoImage(
-        file=relative_to_assets("shopItem.png"))
+    file=relative_to_assets("first.png"))
     image_12 = canvas.create_image(
-        332.0,
+        125.0,
         548.0,
         image=shopItem6
     )
@@ -552,9 +580,9 @@ def loyaltyWindow():
 
     global shopItem7
     shopItem7 = tk.PhotoImage(
-        file=relative_to_assets("shopItem.png"))
+    file=relative_to_assets("active.png"))
     image_13 = canvas.create_image(
-        531.0,
+        954.0,
         548.0,
         image=shopItem7
     )
@@ -562,63 +590,53 @@ def loyaltyWindow():
 
     global shopItem8
     shopItem8 = tk.PhotoImage(
-        file=relative_to_assets("shopItem.png"))
+    file=relative_to_assets("monos.png"))
     image_14 = canvas.create_image(
-        736.0,
-        548.0,
+        538.0,
+        556.0,
         image=shopItem8
     )
     canvas.tag_bind(image_14, '<Button-1>', lambda event, item=8: itemOnClick(item))
 
     global shopItem9
     shopItem9 = tk.PhotoImage(
-        file=relative_to_assets("shopItem.png"))
+    file=relative_to_assets("shangri.png"))
     image_15 = canvas.create_image(
-        945.0,
-        548.0,
+        748.0,
+        555.0,
         image=shopItem9
     )
     canvas.tag_bind(image_15, '<Button-1>', lambda event, item=9: itemOnClick(item))
 
     global shopItem10
     shopItem10 = tk.PhotoImage(
-        file=relative_to_assets("shopItem.png"))
+    file=relative_to_assets("discount.png"))
     image_16 = canvas.create_image(
-        1146.0,
-        548.0,
+        330.0,
+        551.0,
         image=shopItem10
     )
     canvas.tag_bind(image_16, '<Button-1>', lambda event, item=10: itemOnClick(item))
 
     global shopItem11
     shopItem11 = tk.PhotoImage(
-        file=relative_to_assets("shopItem.png"))
+    file=relative_to_assets("apple.png"))
     image_17 = canvas.create_image(
-        531.0,
-        287.0,
+        1159.0,
+        555.0,
         image=shopItem11
     )
     canvas.tag_bind(image_17, '<Button-1>', lambda event, item=11: itemOnClick(item))
 
     global shopItem12
     shopItem12 = tk.PhotoImage(
-        file=relative_to_assets("shopItem.png"))
+    file=relative_to_assets("ecnonomyplus.png"))
     image_18 = canvas.create_image(
-        133.0,
-        287.0,
+        950.0,
+        281.0,
         image=shopItem12
     )
     canvas.tag_bind(image_18, '<Button-1>', lambda event, item=12: itemOnClick(item))
-
-    global image_image_19
-    image_image_19 = tk.PhotoImage(
-        file=relative_to_assets("holder2.png"))
-    image_19 = canvas.create_image(
-        640.0,
-        120.0,
-        image=image_image_19
-    )
-    canvas.tag_bind(image_19, '<Button-1>', lambda event, item=13: itemOnClick(item))
 
 
 def faqWindow():
