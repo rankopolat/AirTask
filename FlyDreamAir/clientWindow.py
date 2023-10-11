@@ -25,6 +25,38 @@ def faqOnClick(event):
     updateInfo(username)
     faqWindow()
 
+def purchaseClick(event):
+
+    global text, total, points
+
+    if(text != "\n"):
+
+        lines = text.splitlines()
+        for line in lines:
+
+            if line == "":
+                continue
+
+            words = line.split()
+
+            points -= int(words[3])
+            print(words)
+
+            if words[1] == "Tier":
+                Database.conn.execute("UPDATE USER SET TIER = ? WHERE USERNAME = ?", (words[0], username))
+                Database.conn.commit()
+                text = "\n"
+
+    Database.conn.execute("UPDATE USER SET POINTS = ? WHERE USERNAME = ?", (points, username))
+    Database.conn.commit()
+
+    total = 0
+    canvas.itemconfig(text_item, text=text)
+    canvas.itemconfig(totalIndicator, text=total)
+
+
+
+
 def homeClick(event):
     frame.destroy()
     updateInfo(username)
@@ -82,37 +114,24 @@ def itemOnClick(item):
             total += 2000
         case 8:
             print("MONOS SUITCASE")
-            text += f"{'Monos Suitcase':<78}2500\n"
+            text += f"{'Monos Branded Suitcase':<73}2500\n"
             total += 2500
         case 9:
             print("SHANGRI-LA")
-            text += f"{'2 Nights at Shangri-La':<77}5000\n"
+            text += f"{'2 Nights Shangri-La':<77}5000\n"
             total += 5000
         case 10:
             print("20% DISCOUNT")
-            text += f"{'20% off Air Travel Accessories':<72}1500\n"
+            text += f"{'20% Air Accessories':<76}1500\n"
             total += 1500
         case 11:
             print("APPLE GIFT CARD")
-            text += f"{'$50 Apple Gift Card':<78}2000\n"
+            text += f"{'$50 Apple-Gift Card':<78}2000\n"
             total += 2000
         case 12:
             print("ECONOMY PLUS")
             text += f"{'Economy Plus Upgrade':<74}2000\n"
             total += 2000
-
-
-def update_text():
-
-    global text
-    Database.conn.execute("UPDATE USER SET TIER = ? WHERE USERNAME = ?", ("SILVER", username))
-    Database.conn.commit()
-
-    updated = f"{text}\n{username,tier,points}"
-
-    text = f"{text}\n{updated}"
-
-
 
 def mainClientWindow(user):
 
@@ -286,12 +305,11 @@ def cartWindow():
     global baskI
     baskI = tk.PhotoImage(
         file=relative_to_assets("lock.png"))
-    image_1 = canvas.create_image(
+    canvas.create_image(
         1227.0,
         48.0,
         image=baskI
     )
-    canvas.tag_bind(image_1, '<Button-1>', lambda event: update_text())
 
 
     global account
@@ -360,6 +378,17 @@ def cartWindow():
         image=image_image_8
     )
 
+    global purchaseButton
+    purchaseButton = tk.PhotoImage(
+        file=relative_to_assets("purchase.png"))
+    pb = canvas.create_image(
+        1116.0,
+        672.0,
+        image=purchaseButton
+    )
+    canvas.tag_bind(pb, '<Button-1>', purchaseClick)
+
+    global text_item
     text_item = canvas.create_text(
         359.0,
         253.0,
@@ -369,7 +398,8 @@ def cartWindow():
         font=("TkFixedFont", 17 * -1)
     )
 
-    canvas.create_text(
+    global totalIndicator
+    totalIndicator = canvas.create_text(
         885.0,
         620.0,
         anchor="nw",
