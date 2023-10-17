@@ -29,9 +29,3 @@ People who attended: Ranko, Poh, Sreeram, Sherry, Lucas
 ### Work to complete next week:
 
 - Nothing Last Weekly Meeting All Complete
-
-
-
-
-
-
