@@ -14,30 +14,22 @@
 
 Tuesday Week 12  - 17/10/2023
 
-Duration was for :  minutes
+Duration was for :  85 minutes
 
-People who attended: Ranko, Poh, Sreeram, Prisha
+People who attended: Ranko, Poh, Sreeram, Sherry, Lucas
 
 ### Work completed this week:
 
+- Editing finalised
+- Project presentation completed
+- WBS complete
+- Effort/Cost Estimates completed
+- Milestones Completed
   
 ### Work to complete next week:
 
+- Nothing Last Weekly Meeting All Complete
 
-
-### What's going well and why:
-
-
-
-### Whats not going well and why:
-
-
-
-### Suggestions/Issues:
-
-
-
-### Project Changes:
 
 
 
