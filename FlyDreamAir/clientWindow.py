@@ -3,7 +3,7 @@ from pathlib import Path
 from Database import Database
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"Resources\clientImages")
+ASSETS_PATH = OUTPUT_PATH / Path(r"Resources/clientImages")
 
 text = "\n"
 total = 0
