@@ -19,7 +19,7 @@ Assume that you are members of FlyDreamAir IT team. You are required to select a
 
 
 ## Selected Project
-We are going to do Project 2
+Project 2: develop an IT software system to manage loyalty programs (e.g., frequent flyer points and rewards including a wide range of ways to earn points, use points, status upgrade, etc.). 
 
 
 ## Weekly Meeting Discussions
